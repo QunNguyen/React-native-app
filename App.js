@@ -36,12 +36,13 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer >
-      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown :false}}>
-        <Stack.Screen name="login" component={Login}></Stack.Screen>
-        <Stack.Screen name="Main" component={Main}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer >
+    //   <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown :false}}>
+    //     <Stack.Screen name="login" component={Login}></Stack.Screen>
+    //     <Stack.Screen name="Main" component={Main}></Stack.Screen>
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    <Main></Main>
   );
 };
 
