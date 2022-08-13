@@ -29,6 +29,8 @@ import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Main from './Main';
+import { connect } from 'react-redux';
+import { login } from '../actions/authActions';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -246,4 +248,17 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+
+
+const mapStateToProps = (state) => ({
+  loginedEmail:state.auths.loginedEmail,
+})
+
+const mapDispatchToProps =(dispatch)=>({
+  login: async (email,password) =>dispatch(login(email,password)),
+})
+   
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

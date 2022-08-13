@@ -37,22 +37,21 @@ import authReducer from './reducers/authReducer';
 
 const tab=createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-// const rootReducers=combineReducers({
-//   auths: authReducer,
-// });
-// const store =createStore(rootReducers);
+const rootReducers=combineReducers({
+  auths: authReducer,
+});
+const store =createStore(rootReducers);
 
 const App = () => {
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown :false}}>
         <Stack.Screen name="login" component={Login}></Stack.Screen>
         <Stack.Screen name="Main" component={Main}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
-    // </Provider>
-
+     </Provider>
   );
 };
 
