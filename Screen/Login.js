@@ -68,6 +68,9 @@ const BetweenLogin = ({ Navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passHidden, setPassHidden] = useState(true);
+  const dangnnhap=()=>{
+    
+  }
   return (
     <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#FAFAFA' }}>
       <Text style={{ fontSize: 24, fontWeight: '600', marginLeft: 20, marginTop: 10 }}>Login in your account</Text>
