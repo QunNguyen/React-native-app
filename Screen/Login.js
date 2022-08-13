@@ -100,8 +100,8 @@ const BetweenLogin = ({ Navigation }) => {
 
       {/* Forgot password */}
       <View style={{ width: windowWidth - 60, marginLeft: 20, marginTop: 20, alignItems: 'flex-end' }}>
-        <TouchableOpacity style={{alignItems:'flex-end'}}>
-        <Text>Forgot password ?</Text>
+        <TouchableOpacity style={{ alignItems: 'flex-end' }}>
+          <Text>Forgot password ?</Text>
         </TouchableOpacity>
       </View>
 
@@ -214,22 +214,33 @@ const Bottom = () => {
   );
 }
 
-const Login = ({ navigation }) => {
-  const [page, setPage] = useState(SGIN_IN);
-  return (
-    <ScrollView style={{ height: '100%', width: '100%' }} >
-      <View style={{ height: windowHeight / 3 - 50, width: '100%' }}>
-        <Top page={page} setPage={setPage}></Top>
-      </View>
+class Login extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      page:SGIN_IN
+    }
+  }
+  render() {
+    return (
+      <ScrollView style={{ height: '100%', width: '100%' }} >
+        <View style={{ height: windowHeight / 3 - 50, width: '100%' }}>
+          <Top page={this.state.page} setPage={(page)=>{
+            this.setState({
+              page:page
+            })
+          }}></Top>
+        </View>
 
-      <View style={{ height: (windowHeight / 2) - 40, width: '100%' }}>
-        {page === SGIN_IN ? <BetweenLogin Navigation={navigation} /> : <BetweenSignin />}
-      </View>
+        <View style={{ height: (windowHeight / 2) - 40, width: '100%' }}>
+          {this.state.page === SGIN_IN ? <BetweenLogin Navigation={this.props.navigation} /> : <BetweenSignin />}
+        </View>
 
-      <View style={{ height: windowHeight / 3, width: '100%' }}>
-        <Bottom />
-      </View>
-    </ScrollView>
-  );
+        <View style={{ height: windowHeight / 3, width: '100%' }}>
+          <Bottom />
+        </View>
+      </ScrollView>
+    );
+  }
 }
 export default Login;
