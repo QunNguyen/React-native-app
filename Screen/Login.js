@@ -43,8 +43,8 @@ const Top = ({ page, setPage }) => {
     <View style={{ flex: 1 }}>
       <StatusBar barStyle='light-content'></StatusBar>
       <View style={{ width: '100%', height: '100%' }}>
-        <View style={{ width: '100%', flex: 1, backgroundColor: '#4D8D', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 50, fontWeight: '800' }}>Wasty.</Text>
+        <View style={{ width: '100%', flex: 1, backgroundColor: '#18C0C1', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 50, fontWeight: '800' }}>Travel.</Text>
           <Text style={{ fontSize: 15, fontWeight: '500' }}>Think for nature</Text>
         </View>
         <View style={{ height: 50, flexDirection: 'row' }}>
@@ -78,7 +78,7 @@ const BetweenLogin = ({ Navigation }) => {
       <Text style={{ fontSize: 24, fontWeight: '600', marginLeft: 20, marginTop: 10 }}>Login in your account</Text>
 
       {/* email */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white' }}>
+      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',borderRadius:20 }}>
         <Image source={require('../image/email.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
         <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
           placeholder='E-mail'
@@ -87,7 +87,7 @@ const BetweenLogin = ({ Navigation }) => {
       </View>
 
       {/* password */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white' }}>
+      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',borderRadius:20 }}>
         <Image source={require('../image/padlock.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
         <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
           placeholder='Password'
@@ -112,7 +112,7 @@ const BetweenLogin = ({ Navigation }) => {
 
       {/* Btn Login */}
       <View style={{ alignItems: 'center', marginTop: 20, }}>
-        <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#4D8D', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}
+        <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#18C0C1', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}
           onPress={() => {
             Navigation.navigate('Main');
           }}>
@@ -133,7 +133,7 @@ const BetweenSignin = () => {
       <Text style={{ fontSize: 24, fontWeight: '600', marginLeft: 20 }}>Create new account</Text>
 
       {/* email */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 10, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white' }}>
+      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 10, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',borderRadius:20 }}>
         <Image source={require('../image/email.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
         <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
           placeholder='E-mail'
@@ -142,7 +142,7 @@ const BetweenSignin = () => {
       </View>
 
       {/* password */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white' }}>
+      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',borderRadius:20}}>
         <Image source={require('../image/padlock.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
         <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
           placeholder='Password'
@@ -159,7 +159,7 @@ const BetweenSignin = () => {
       </View>
 
       {/* confirm_password */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white' }}>
+      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',borderRadius:20 }}>
         <Image source={require('../image/padlock.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
         <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
           placeholder='Confirm password'
@@ -177,7 +177,7 @@ const BetweenSignin = () => {
 
       {/* Btn Login */}
       <View style={{ alignItems: 'center', marginTop: 20 }}>
-        <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#4D8D', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}>
+        <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#18C0C1', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}>
           <Text style={{ fontSize: 20, color: "white", fontWeight: '500' }}>Create new account</Text>
         </TouchableOpacity>
       </View>
@@ -228,7 +228,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <ScrollView style={{ height: '100%', width: '100%' }} >
+      <View style={{ height: '100%', width: '100%' }} >
         <View style={{ height: windowHeight / 3 - 50, width: '100%' }}>
           <Top page={this.state.page} setPage={(page)=>{
             this.setState({
@@ -237,14 +237,14 @@ class Login extends Component {
           }}></Top>
         </View>
 
-        <View style={{ height: (windowHeight / 2) - 40, width: '100%' }}>
+        <View style={{ height: (windowHeight / 2) - 70, width: '100%' }}>
           {this.state.page === SGIN_IN ? <BetweenLogin Navigation={this.props.navigation} /> : <BetweenSignin />}
         </View>
 
-        <View style={{ height: windowHeight / 3, width: '100%' }}>
+        <View style={{ height: windowHeight / 3, width: '100%'}}>
           <Bottom />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
