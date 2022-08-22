@@ -23,8 +23,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Main from "./Main";
 import Login from "./Login";
 import Tab1 from './Tab1';
+import Home from './Home';
 
 const Tab = createBottomTabNavigator();
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const Tabs = () => {
     return (
@@ -33,83 +37,135 @@ const Tabs = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarStyle: {
-                    position: 'absolute',
-                    bottom: 15,
-                    marginHorizontal: 20,
-                    borderRadius: 20,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flexDirection: 'column'
-                }
+                tabBarStyle: styles.container
             }}
         >
-            <Tab.Screen name="Home" component={Tab1}
+            <Tab.Screen name="Home" component={Home}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={[
+                            styles.backgroundtabs,
+                            { backgroundColor: focused ? 'white' : null }
+                        ]}>
                             <Image source={require('../image/home.png')}
                                 resizeMode='contain'
-                                style={{
-                                    width: 20,
-                                    height: 20,
-                                    tintColor: focused ? 'red' : 'black',
-                                }}
+                                style={[
+                                    styles.imagebottom,
+                                    { tintColor: focused ? '#18C0C1' : 'white' }
+                                ]}
                             />
-                             {focused===true ?<Text style={{ color: focused ? 'red' : 'black', fontSize: 10 }}>Home</Text>:null }
+                            {focused === true ? null : null}
                         </View>
                     ),
                 }} />
-            <Tab.Screen name="Phonebook" component={Tab1}
+            <Tab.Screen name="Loupe" component={Tab1}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Image source={require('../image/phonebook.png')}
+                        <View style={[
+                            styles.backgroundtabs,
+                            { backgroundColor: focused ? 'white' : null }
+                        ]}>
+                            <Image source={require('../image/loupe.png')}
                                 resizeMode='contain'
-                                style={{
-                                    width: 20,
-                                    height: 20,
-                                    tintColor: focused ? 'red' : 'black'
-                                }}
+                                style={[
+                                    styles.imagebottom,
+                                    { tintColor: focused ? '#18C0C1' : 'white' }
+                                ]}
                             />
-                             {focused===true ?<Text style={{ color: focused ? 'red' : 'black', fontSize: 10 }}>Phonebook</Text>:null }
+                            {focused === true ? null : null}
                         </View>
                     ),
                 }} />
-            <Tab.Screen name="Option" component={Tab1}
+            <Tab.Screen name="Plus" component={Tab1}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Image source={require('../image/option.png')}
+                        <TouchableOpacity>
+                            <View style={[
+                                styles.backgroundtabs,
+                                {
+                                    backgroundColor: 'white',
+                                    marginBottom: 40,
+                                    borderTopStartRadius:50,
+                                    borderTopEndRadius:50,
+                                    borderBottomEndRadius:100,
+                                    borderBottomStartRadius:100
+                                }
+                            ]}>
+                                <Image source={require('../image/plus.png')}
+                                    resizeMode='contain'
+                                    style={[
+                                        styles.imagebottom,
+                                        {
+                                            tintColor: 'black',
+
+                                        }
+                                    ]}
+                                />
+                                {focused === true ? null : null}
+                            </View>
+                        </TouchableOpacity>
+                    ),
+                }} />
+            <Tab.Screen name="Location" component={Tab1}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View style={[
+                            styles.backgroundtabs,
+                            { backgroundColor: focused ? 'white' : null }
+                        ]}>
+                            <Image source={require('../image/location.png')}
                                 resizeMode='contain'
-                                style={{
-                                    width: 20,
-                                    height: 20,
-                                    tintColor: focused ? 'red' : 'black'
-                                }}
+                                style={[
+                                    styles.imagebottom,
+                                    { tintColor: focused ? '#18C0C1' : 'white' }
+                                ]}
                             />
-                            {focused===true ?<Text style={{ color: focused ? 'red' : 'black', fontSize: 10 }}>Option</Text>:null }
-                            
+                            {focused === true ? null : null}
                         </View>
                     ),
                 }} />
-            <Tab.Screen name="History" component={Tab1}
+            <Tab.Screen name="User" component={Tab1}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Image source={require('../image/history.png')}
+                        <View style={[
+                            styles.backgroundtabs,
+                            { backgroundColor: focused ? 'white' : null }
+                        ]}>
+                            <Image source={require('../image/user.png')}
                                 resizeMode='contain'
-                                style={{
-                                    width: 25,
-                                    height: 25,
-                                    tintColor: focused ? 'red' : 'black'
-                                }}
+                                style={[
+                                    styles.imagebottom,
+                                    { tintColor: focused ? '#18C0C1' : 'white' }
+                                ]}
                             />
-                             {focused===true ?<Text style={{ color: focused ? 'red' : 'black', fontSize: 10 }}>History</Text>:null }
+                            {focused === true ? null : null}
                         </View>
                     ),
                 }} />
         </Tab.Navigator>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        width: windowWidth * 0.95,
+        height: windowHeight * 0.08,
+        position: 'absolute',
+        marginBottom: 15,
+        marginHorizontal: windowWidth * 0.025,
+        borderRadius: 20,
+        backgroundColor: '#395065'
+    },
+    backgroundtabs: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: windowWidth * 0.13,
+        height: windowHeight * 0.06,
+        borderRadius: 50,
+    },
+    imagebottom: {
+        width: 22,
+        height: 22,
+    }
+})
 export default Tabs;

@@ -228,7 +228,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <View style={{ height: '100%', width: '100%' }} >
+      <ScrollView style={{ height: '100%', width: '100%' }} >
         <View style={{ height: windowHeight / 3 - 50, width: '100%' }}>
           <Top page={this.state.page} setPage={(page)=>{
             this.setState({
@@ -237,14 +237,14 @@ class Login extends Component {
           }}></Top>
         </View>
 
-        <View style={{ height: (windowHeight / 2) - 70, width: '100%' }}>
+        <SafeAreaView style={{ height: (windowHeight / 2) - 40, width: '100%' }}>
           {this.state.page === SGIN_IN ? <BetweenLogin Navigation={this.props.navigation} /> : <BetweenSignin />}
-        </View>
+        </SafeAreaView>
 
         <View style={{ height: windowHeight / 3, width: '100%'}}>
           <Bottom />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
