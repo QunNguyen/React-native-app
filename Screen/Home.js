@@ -91,7 +91,14 @@ const Between = () => {
 const Bottom = () => {
   return (
     <View style={styles.layoutBottom}>
-
+      <View>
+        <Image source={require("../image/imageTree.jpg")} resizeMode='cover' style={styles.imageQC}></Image>
+      </View>
+      <View style={{ width: windowWidth * 0.9, marginTop: 10 }}>
+        <Text style={{ fontSize: 20, fontWeight: '900', color: 'black', marginVertical: 10 }}>Details</Text>
+        <Text style={styles.text}>Rừng thông trên đường Khởi Nghĩa Bắc Sơn là một trong những rừng thông đẹp nổi tiếng mà bạn nhất định không thể bỏ qua. Vào buổi chiều, khi hoàng hôn buông xuống, rừng thông đẹp lạ lùng với ánh vàng từ nắng rọi kết hợp với màu xanh mướt của thông tạo thành khung cảnh nên thơ vô cùng. Đặc biệt, một vài ngôi nhà vừa hắt lên ánh đèn le lói, chạm tới cả trái tim của những kẻ khó tính nhất.
+        </Text>
+      </View>
     </View>
   );
 }
@@ -101,10 +108,10 @@ const Home = () => {
     <View>
       <ScrollView>
         <View style={styles.top}>
-          <Search></Search>
+          <Search />
         </View>
         <View style={styles.between}>
-          <Between></Between>
+          <Between />
         </View>
         <View style={styles.bottom}>
           <Bottom />
@@ -134,21 +141,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#A5B5CC',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    alignItems:'center',
-    marginTop:20,
+    alignItems: 'center',
+    marginTop: 20,
   },
   layoutBottom: {
-    backgroundColor:'white',
-    width: windowWidth*0.9,
+    width: windowWidth * 0.95,
     height: windowHeight,
-    marginTop: 20,
+    marginTop: 15,
+    alignItems: 'center'
+  },
+  imageQC: {
+    height: windowHeight * 0.3,
+    width: windowWidth * 0.95,
+    borderRadius: 30,
   },
   header: {
     width: windowWidth,
     height: windowHeight * 0.09,
     flexDirection: 'row',
     alignItems: 'center',
-
   },
   headerUser: {
     height: windowHeight * 0.09,
@@ -234,7 +245,10 @@ const styles = StyleSheet.create({
     width: 25,
     marginHorizontal: 10
   },
-
+  text: {
+    fontSize: 18,
+    fontWeight: '400'
+  },
 })
 
 export default Home;

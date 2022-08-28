@@ -149,7 +149,7 @@ const Tabs = () => {
 const styles = StyleSheet.create({
     container: {
         width: windowWidth * 0.95,
-        height: windowHeight * 0.08,
+        height: windowHeight * 0.085,
         position: 'absolute',
         marginBottom: 15,
         marginHorizontal: windowWidth * 0.025,
