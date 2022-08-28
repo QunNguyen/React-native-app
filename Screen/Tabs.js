@@ -85,10 +85,10 @@ const Tabs = () => {
                                 {
                                     backgroundColor: 'white',
                                     marginBottom: 40,
-                                    borderTopStartRadius:50,
-                                    borderTopEndRadius:50,
-                                    borderBottomEndRadius:100,
-                                    borderBottomStartRadius:100
+                                    borderRadius:60,
+                                    height:windowWidth*0.15,
+                                    width:windowWidth*0.15,
+                                    marginBottom:windowWidth*0.15,
                                 }
                             ]}>
                                 <Image source={require('../image/plus.png')}

@@ -31,6 +31,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from './Login';
 
 import Tabs from './Tabs';
+import Tab1 from './Tab1';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -89,35 +90,26 @@ const Between = () => {
 
 const Bottom = () => {
   return (
-    <View style={{ height: 55, width: '100%', flexDirection: 'row', backgroundColor: '#F2F2F2' }}>
-      <TouchableOpacity style={{ height: '100%', width: '20%', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../image/chatting.png')} style={{ height: 35, width: 40 }} resizeMode='contain'></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={{ height: '100%', width: '20%', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../image/phonebook.png')} style={{ height: 35, width: 40 }} resizeMode='contain'></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={{ height: '100%', width: '20%', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../image/chatting.png')} style={{ height: 35, width: 40 }} resizeMode='contain'></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={{ height: '100%', width: '20%', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../image/chatting.png')} style={{ height: 35, width: 40 }} resizeMode='contain'></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={{ height: '100%', width: '20%', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('../image/chatting.png')} style={{ height: 35, width: 40 }} resizeMode='contain'></Image>
-      </TouchableOpacity>
+    <View style={styles.layoutBottom}>
+
     </View>
   );
 }
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.top}>
-        <Search></Search>
-      </View>
-      <View style={styles.between}>
-        <Between></Between>
-      </View>
+    <View>
+      <ScrollView>
+        <View style={styles.top}>
+          <Search></Search>
+        </View>
+        <View style={styles.between}>
+          <Between></Between>
+        </View>
+        <View style={styles.bottom}>
+          <Bottom />
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -135,6 +127,21 @@ const styles = StyleSheet.create({
   between: {
     height: windowHeight * 0.3,
     width: windowWidth
+  },
+  bottom: {
+    width: windowWidth,
+    height: windowHeight,
+    backgroundColor: '#A5B5CC',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    alignItems:'center',
+    marginTop:20,
+  },
+  layoutBottom: {
+    backgroundColor:'white',
+    width: windowWidth*0.9,
+    height: windowHeight,
+    marginTop: 20,
   },
   header: {
     width: windowWidth,
@@ -226,7 +233,8 @@ const styles = StyleSheet.create({
     height: 30,
     width: 25,
     marginHorizontal: 10
-  }
+  },
+
 })
 
 export default Home;

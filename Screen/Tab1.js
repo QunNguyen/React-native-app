@@ -72,7 +72,7 @@ const List = ({item}) => {
 
 const Tab1 = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
+    <View style={{ flex: 1}}>
       <FlatList
         data={DATA}
         renderItem={List}
