@@ -44,15 +44,15 @@ const store =createStore(rootReducers);
 
 const App = () => {
   return (
-    // <Provider store={store}>
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown :false}}>
-    //     <Stack.Screen name="login" component={Login}></Stack.Screen>
-    //     <Stack.Screen name="Main" component={Main}></Stack.Screen>
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    //  </Provider>
-    <Main></Main>
+    <Provider store={store}>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown :false}}>
+        <Stack.Screen name="login" component={Login}></Stack.Screen>
+        <Stack.Screen name="Main" component={Main}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+     </Provider>
+    // <Main></Main>
   );
 };
 
