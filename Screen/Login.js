@@ -106,12 +106,12 @@ const BetweenLogin = ({ Navigation }) => {
             secureTextEntry={passHidden ? true : false} // set trang thai cua password
             autoCapitalize={false}>
           </TextInput>
-          <TouchableOpacity style={{ height: '100%', justifyContent: 'center', }}
+          <TouchableOpacity style={{ justifyContent: 'center', }}
             onPress={() => { setPassHidden(!passHidden) }
               //kich hoat chuc nang hien/an password
             }
           >
-            <Image source={require('../image/3.png')} style={{ height: 20, width: 20,marginHorizontal:10,}} resizeMode='contain'></Image>
+            <Image source={require('../image/3.png')} style={{ height: 20, width: 20, marginHorizontal: 10, }} resizeMode='contain'></Image>
           </TouchableOpacity>
         </View>
 
@@ -143,52 +143,58 @@ const BetweenSignin = () => {
   const [confirm_password, setConFirmPassHidden] = useState(true);
   const [passHidden, setPassHidden] = useState(true);
   return (
-    <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#EEE9E9' }}>
-      <Text style={{ fontSize: 24, fontWeight: '600', marginLeft: 20 }}>Create new account</Text>
+    <View style={styles.layoutBetween}>
+      <Text style={{
+         fontSize: 24,
+         fontWeight: '600',
+         marginLeft: 30,
+         color: 'black',
+         marginTop:10, 
+         }}>Create new account</Text>
+      <View style={{ alignItems: 'center' }}>
+        {/* email */}
+        <View style={[styles.layoutBetweenLoginTextInput, { height: windowHeight * 0.06 }]}>
+          <Image source={require('../image/email.png')} style={styles.layoutBetweenLoginTextInputImage} resizeMode='contain'></Image>
+          <TextInput style={styles.layoutBetweenLoginTextInputStyle}
+            placeholder='E-mail'
+            autoCapitalize={false}>
+          </TextInput>
+        </View>
 
-      {/* email */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 10, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white', borderRadius: 20 }}>
-        <Image source={require('../image/email.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
-        <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
-          placeholder='E-mail'
-          autoCapitalize={false}>
-        </TextInput>
+        {/* password */}
+        <View style={[styles.layoutBetweenLoginTextInput, { height: windowHeight * 0.06 }]}>
+          <Image source={require('../image/padlock.png')} style={styles.layoutBetweenLoginTextInputImage} resizeMode='contain'></Image>
+          <TextInput style={styles.layoutBetweenLoginTextInputStyle}
+            placeholder='Password'
+            secureTextEntry={passHidden ? true : false} // set trang thai cua password
+            autoCapitalize={false}>
+          </TextInput>
+          <TouchableOpacity style={{ justifyContent: 'center', }}
+            onPress={() => { setPassHidden(!passHidden) }
+              //kich hoat chuc nang hien/an password
+            }
+          >
+            <Image source={require('../image/3.png')} style={{ height: 20, width: 20, marginHorizontal: 10, }} resizeMode='contain'></Image>
+          </TouchableOpacity>
+        </View>
+
+        {/* confirm_password */}
+        <View style={[styles.layoutBetweenLoginTextInput, { height: windowHeight * 0.06 }]}>
+          <Image source={require('../image/padlock.png')} style={styles.layoutBetweenLoginTextInputImage} resizeMode='contain'></Image>
+          <TextInput style={styles.layoutBetweenLoginTextInputStyle}
+            placeholder='Confirm password'
+            secureTextEntry={confirm_password ? true : false} // set trang thai cua password
+            autoCapitalize={false}>
+          </TextInput>
+          <TouchableOpacity style={{ justifyContent: 'center', }}
+            onPress={() => { setConFirmPassHidden(!confirm_password) }
+              //kich hoat chuc nang hien/an password
+            }
+          >
+            <Image source={require('../image/3.png')} style={{ height: 20, width: 20, marginHorizontal: 10, }} resizeMode='contain'></Image>
+          </TouchableOpacity>
+        </View>
       </View>
-
-      {/* password */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white', borderRadius: 20 }}>
-        <Image source={require('../image/padlock.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
-        <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
-          placeholder='Password'
-          secureTextEntry={passHidden ? true : false} // set trang thai cua password
-          autoCapitalize={false}>
-        </TextInput>
-        <TouchableOpacity style={{ height: '100%', aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}
-          onPress={() => { setPassHidden(!passHidden) }
-            //kich hoat chuc nang hien/an password
-          }
-        >
-          <Image source={require('../image/3.png')} style={{ height: 20, width: 20, marginRight: 10, marginLeft: 10 }} resizeMode='contain'></Image>
-        </TouchableOpacity>
-      </View>
-
-      {/* confirm_password */}
-      <View style={{ width: windowWidth - 60, height: 50, marginLeft: 20, marginTop: 20, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white', borderRadius: 20 }}>
-        <Image source={require('../image/padlock.png')} style={{ height: 30, width: 40, marginHorizontal: 5 }} resizeMode='contain'></Image>
-        <TextInput style={{ height: '100%', flex: 1, marginLeft: 10 }}
-          placeholder='Confirm password'
-          secureTextEntry={confirm_password ? true : false} // set trang thai cua password
-          autoCapitalize={false}>
-        </TextInput>
-        <TouchableOpacity style={{ height: '100%', aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}
-          onPress={() => { setConFirmPassHidden(!confirm_password) }
-            //kich hoat chuc nang hien/an password
-          }
-        >
-          <Image source={require('../image/3.png')} style={{ height: 20, width: 20, marginRight: 10, marginLeft: 10 }} resizeMode='contain'></Image>
-        </TouchableOpacity>
-      </View>
-
       {/* Btn Login */}
       <View style={{ alignItems: 'center', marginTop: 20 }}>
         <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#18C0C1', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}>
@@ -338,7 +344,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10
   },
   layoutBetweenLoginTextInputStyle: {
-    width:windowWidth*0.64
+    width: windowWidth * 0.64
   }
 })
 
