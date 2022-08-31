@@ -29,8 +29,10 @@ import { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Main from './Main';
-import { connect } from 'react-redux';
-import { login } from '../actions/authActions';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { login } from '../redux/actions';
+import reducer from '../redux/reducer';
+
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -71,13 +73,18 @@ const Top = ({ page, setPage }) => {
   );
 }
 
+
+
 const BetweenLogin = ({ Navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passHidden, setPassHidden] = useState(true);
-  const dangnnhap = () => {
 
+  const dangnnhap = () => {
+    Navigation.navigate('Main')
+    console.log(email,password)
   }
+
   return (
     <View style={styles.layoutBetween}>
       <Text style={{
@@ -93,7 +100,10 @@ const BetweenLogin = ({ Navigation }) => {
           <TextInput
             style={styles.layoutBetweenLoginTextInputStyle}
             placeholder='E-mail'
-            autoCapitalize={false}>
+            autoCapitalize={false}
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+          >
           </TextInput>
         </View>
 
@@ -104,7 +114,10 @@ const BetweenLogin = ({ Navigation }) => {
             style={styles.layoutBetweenLoginTextInputStyle}
             placeholder='Password'
             secureTextEntry={passHidden ? true : false} // set trang thai cua password
-            autoCapitalize={false}>
+            autoCapitalize={false}
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+          >
           </TextInput>
           <TouchableOpacity style={{ justifyContent: 'center', }}
             onPress={() => { setPassHidden(!passHidden) }
@@ -126,9 +139,7 @@ const BetweenLogin = ({ Navigation }) => {
       {/* Btn Login */}
       <View style={{ alignItems: 'center', marginTop: 20, }}>
         <TouchableOpacity style={{ borderWidth: 1, backgroundColor: '#18C0C1', height: 50, width: '70%', alignItems: 'center', justifyContent: 'center', borderRadius: 30 }}
-          onPress={() => {
-            Navigation.navigate('Main');
-          }}>
+          onPress={dangnnhap}>
           <Text style={{ fontSize: 20, color: "white", fontWeight: '500' }}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -145,12 +156,12 @@ const BetweenSignin = () => {
   return (
     <View style={styles.layoutBetween}>
       <Text style={{
-         fontSize: 24,
-         fontWeight: '600',
-         marginLeft: 30,
-         color: 'black',
-         marginTop:10, 
-         }}>Create new account</Text>
+        fontSize: 24,
+        fontWeight: '600',
+        marginLeft: 30,
+        color: 'black',
+        marginTop: 10,
+      }}>Create new account</Text>
       <View style={{ alignItems: 'center' }}>
         {/* email */}
         <View style={[styles.layoutBetweenLoginTextInput, { height: windowHeight * 0.06 }]}>
@@ -247,6 +258,7 @@ class Login extends Component {
     }
   }
   render() {
+    console.log(this.props.reducer)
     return (
       <ScrollView style={styles.container} >
         <View style={styles.top}>
@@ -348,14 +360,12 @@ const styles = StyleSheet.create({
   }
 })
 
+
 const mapStateToProps = (state) => ({
-  loginedEmail: state.auths.loginedEmail,
+  reducer: state.reducer.authToken
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  login: async (email, password) => dispatch(login(email, password)),
-})
-
-
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
